@@ -5,14 +5,21 @@ export function navbarCreate() {
 	nav.classList.add('navbar');
 	const ul = document.createElement('ul');
 	ul.classList.add('navbar-nav');
-	const navLinksText = [ 'Home', 'Menu', 'Contact' ];
-	for (const text of navLinksText) {
-		const a = document.createElement('a');
+	const spanTexts = [ 'Home', 'Menu', 'Contact' ];
+	const iconClasses = [ 'fa-home', 'fa-utensils', 'fa-info-circle' ];
+	for (let i = 0; i < 3; i++) {
+		const span = document.createElement('span');
+		const icon = document.createElement('i');
+		const aLink = document.createElement('a');
 		const li = document.createElement('li');
-		a.classList.add('nav-link');
+		span.textContent = spanTexts[i];
+		span.classList.add('link-text');
+		icon.classList.add('fas');
+		icon.classList.add(iconClasses[i]);
+		aLink.classList.add('nav-link');
 		li.classList.add('nav-item');
-		a.text = text;
-		li.append(a);
+		aLink.append(icon, span);
+		li.append(aLink);
 		ul.append(li);
 	}
 	nav.append(ul);
