@@ -3,7 +3,7 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-$colors: (bg: #071a52, nav: #353535, primary: #086972, accent: #a7ff83, text: #ffffff);
+$colors: (bg: #071a52, nav: #03123d, nav-dark: #010c2b, primary: #00b38d, accent: #56ecc3, text: #ffffff);
 $desktop: 60rem;
 
 @function color($color-name) {
@@ -16,7 +16,7 @@ $desktop: 60rem;
 @mixin flexCenter($direction) {
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: center;
 	flex-direction: $direction;
 }
 
@@ -53,19 +53,60 @@ body {
 	height: 5rem;
 	position: fixed;
 	background-color: color(nav);
+	transition: width 200ms ease;
 	@include flexCenter(row);
+	@include desktop {
+		width: 5rem;
+		height: 100vh;
+	}
+	&:hover {
+		@include desktop {
+			width: 12rem;
+		}
+	}
+	&:hover .link-text {
+		@include desktop {
+			display: inline;
+		}
+	}
 	&-nav {
 		width: 100vw;
 		list-style: none;
 		@include noMarginPadding();
 		@include flexCenter(row);
+		@include desktop {
+			height: 100%;
+			justify-content: flex-start;
+			flex-direction: column;
+		}
 	}
 }
 
-.nav-link {
-	color: color(text);
-	text-decoration: none;
-	&:hover {
-		color: color(accent);
+.nav {
+	&-item {
+		width: 100%;
+		&:hover {
+			background-color: color(nav-dark);
+		}
 	}
+	&-link {
+		height: 5rem;
+		width: 100%;
+		color: color(text);
+		text-decoration: none;
+		font-size: 1.5rem;
+		@include flexCenter(row);
+		@include desktop {
+			width: 3.5rem;
+			justify-content: flex-start;
+			padding-left: 1.5rem;
+		}
+		&:hover {
+			color: color(accent);
+		}
+	}
+}
+.link-text {
+	display: none;
+	margin-left: 1rem;
 }
