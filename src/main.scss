@@ -1,8 +1,23 @@
-$colors: (bg: #071a52, primary: #086972, secondary: #17b978, accent: #a7ff83, text: #ffffff);
-$desktop: 900px;
+:root {
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+$colors: (bg: #071a52, nav: #353535, primary: #086972, accent: #a7ff83, text: #ffffff);
+$desktop: 60rem;
 
 @function color($color-name) {
 	@return map-get($colors, $color-name);
+}
+@mixin noMarginPadding {
+	margin: 0;
+	padding: 0;
+}
+@mixin flexCenter($direction) {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: $direction;
 }
 
 @mixin desktop {
@@ -17,8 +32,8 @@ html {
 }
 
 body {
-	color: color(primary);
-	margin: 0;
+	@include noMarginPadding();
+	color: color(text);
 	#content {
 		clip-path: polygon(100% 0%, 100% 82%, 45% 100%, 0 100%, 0 0);
 		background-color: color(bg);
@@ -29,5 +44,28 @@ body {
 		@include desktop {
 			clip-path: polygon(0 0, 75% 0, 55% 100%, 0% 100%);
 		}
+	}
+}
+
+.navbar {
+	bottom: 0;
+	width: 100vw;
+	height: 5rem;
+	position: fixed;
+	background-color: color(nav);
+	@include flexCenter(row);
+	&-nav {
+		width: 100vw;
+		list-style: none;
+		@include noMarginPadding();
+		@include flexCenter(row);
+	}
+}
+
+.nav-link {
+	color: color(text);
+	text-decoration: none;
+	&:hover {
+		color: color(accent);
 	}
 }
