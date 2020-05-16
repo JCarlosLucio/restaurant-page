@@ -1,4 +1,6 @@
 import './main.scss';
-import { navbarCreate } from './app/navbar';
+import { createNavbar } from './app/navbar';
+import { createHome } from './app/home';
 
-navbarCreate();
+createNavbar();
+createHome();
