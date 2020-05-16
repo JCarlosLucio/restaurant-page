@@ -11,7 +11,8 @@ $colors: (
 	primary: #00b38d,
 	accent: #56ecc3,
 	text: #ffffff,
-	text-dark:#000000
+	text-dark:#000000,
+	shadow: #00000071
 );
 $desktop: 60rem;
 
@@ -59,9 +60,21 @@ body {
 	justify-content: flex-start;
 }
 .container {
-	height: 85vh;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
+	@include desktop {
+		align-items: center;
+		padding-left: 5rem;
+	}
+}
+h1 {
+	font-size: 2rem;
+	@include desktop {
+		font-size: 3rem;
+		display: flex;
+		align-self: flex-start;
+	}
 }
 .span-box {
 	display: flex;
@@ -70,6 +83,14 @@ body {
 	position: absolute;
 	width: 20rem;
 	height: 20rem;
+	@include desktop {
+		width: 30rem;
+		height: 30rem;
+	}
+}
+.img-box {
+	padding: 2rem 0;
+	@include flexCenter(column);
 }
 .img-text {
 	height: 7rem;
@@ -80,12 +101,23 @@ body {
 	border-radius: 50%;
 	color: color(text-dark);
 	background-color: color(bg-light);
+	box-shadow: 1px 1px 10px color(shadow);
 	@include flexCenter(column);
+	@include desktop {
+		height: 8rem;
+		width: 8rem;
+		font-size: 1.5rem;
+	}
 }
 img {
 	width: 20rem;
 	height: 20rem;
 	border-radius: 50%;
+	box-shadow: 1px 1px 10px color(shadow);
+	@include desktop {
+		width: 30rem;
+		height: 30rem;
+	}
 }
 .card {
 	color: color(text-dark);
@@ -99,17 +131,19 @@ img {
 			padding-bottom: 1rem;
 		}
 	}
+	@include desktop {
+		font-size: 1.2rem;
+	}
 }
-
 .triangle {
 	@include oneHundred();
 	clip-path: polygon(0 0, 100% 0, 100% 19%, 0 60%);
-	background-color: color(bg-dark);
+	background-image: linear-gradient(to right bottom, #042074, #0057a9, #008bc3, #00bdc8, #56ecc3);
 	position: absolute;
 	z-index: -1;
-	// @include desktop {
-	// 	clip-path: polygon(0 0, 75% 0, 55% 100%, 0% 100%);
-	// }
+	@include desktop {
+		clip-path: polygon(0 0, 100% 0, 100% 19%, 0 80%);
+	}
 }
 
 .navbar {
