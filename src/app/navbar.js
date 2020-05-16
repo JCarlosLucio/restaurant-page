@@ -1,6 +1,6 @@
 const body = document.querySelector('body');
 
-export function navbarCreate() {
+export function createNavbar() {
 	const nav = document.createElement('nav');
 	nav.classList.add('navbar');
 	const ul = document.createElement('ul');
