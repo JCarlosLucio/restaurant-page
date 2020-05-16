@@ -1,3 +1,4 @@
+import burgerHome from '../assets/burger-home.jpg';
 const content = document.querySelector('#content');
 
 export function createHome() {
@@ -26,8 +27,8 @@ export function createHome() {
 	// add other attributes
 	h1.textContent = 'Restaurant Page'.toUpperCase();
 	imgText.textContent = '100% Angus Beef';
-	burgerImg.src = 'https://source.unsplash.com/sc5sTPMrVfk';
-	burgerImg.alt = 'burger image';
+	burgerImg.src = burgerHome;
+	burgerImg.alt = 'home burger image';
 	// append elements
 	spanBox.append(imgText);
 	imgBox.append(spanBox, burgerImg);
