@@ -3,7 +3,16 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-$colors: (bg: #071a52, nav: #03123d, nav-dark: #010c2b, primary: #00b38d, accent: #56ecc3, text: #ffffff);
+$colors: (
+	bg-dark: #042074,
+	bg-light: #ffffff,
+	nav: #03123d,
+	nav-dark: #010c2b,
+	primary: #00b38d,
+	accent: #56ecc3,
+	text: #ffffff,
+	text-dark:#000000
+);
 $desktop: 60rem;
 
 @function color($color-name) {
@@ -18,6 +27,10 @@ $desktop: 60rem;
 	align-items: center;
 	justify-content: center;
 	flex-direction: $direction;
+}
+@mixin oneHundred() {
+	width: 100%;
+	height: 100%;
 }
 
 @mixin desktop {
@@ -34,17 +47,69 @@ html {
 body {
 	@include noMarginPadding();
 	color: color(text);
-	#content {
-		clip-path: polygon(100% 0%, 100% 82%, 45% 100%, 0 100%, 0 0);
-		background-color: color(bg);
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		z-index: -1;
+	background-color: color(bg-light);
+}
+#content {
+	@include oneHundred();
+}
+.container-fluid {
+	@include oneHundred();
+	@include flexCenter(column);
+	color: color(text);
+	justify-content: flex-start;
+}
+.container {
+	height: 85vh;
+	display: flex;
+	flex-direction: column;
+}
+.span-box {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	position: absolute;
+	width: 20rem;
+	height: 20rem;
+}
+.img-text {
+	height: 7rem;
+	width: 7rem;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 800;
+	border-radius: 50%;
+	color: color(text-dark);
+	background-color: color(bg-light);
+	@include flexCenter(column);
+}
+img {
+	width: 20rem;
+	height: 20rem;
+	border-radius: 50%;
+}
+.card {
+	color: color(text-dark);
+	text-align: right;
+	line-height: 1.8;
+	letter-spacing: 0.05rem;
+	width: 80vw;
+	&:last-of-type {
+		padding-bottom: 5rem;
 		@include desktop {
-			clip-path: polygon(0 0, 75% 0, 55% 100%, 0% 100%);
+			padding-bottom: 1rem;
 		}
 	}
+}
+
+.triangle {
+	@include oneHundred();
+	clip-path: polygon(0 0, 100% 0, 100% 19%, 0 60%);
+	background-color: color(bg-dark);
+	position: absolute;
+	z-index: -1;
+	// @include desktop {
+	// 	clip-path: polygon(0 0, 75% 0, 55% 100%, 0% 100%);
+	// }
 }
 
 .navbar {
