@@ -1,3 +1,8 @@
+import restaurantPageBurger from '../assets/restaurant-page-burger.jpg';
+import meatLoversBurger from '../assets/meat-lovers-burger.jpg';
+import doubleTroubleBurger from '../assets/double-trouble-burger.jpg';
+import doNotBurger from '../assets/do-not-burger.jpg';
+
 const content = document.querySelector('#content');
 
 export function createMenu() {
@@ -5,28 +10,28 @@ export function createMenu() {
 	menuGrid.classList.add('menu-grid');
 	const menuItems = [
 		{
-			src: 'https://source.unsplash.com/sc5sTPMrVfk',
+			src: restaurantPageBurger,
 			alt: 'restaurant page burger',
 			price: '$8.99',
 			text:
 				'A timeless classic with all of the essentials. TWO classic patties with american cheese on a bed of onion, tomato, iceberg lettuce, secret sauce in our staple brioche bread.'
 		},
 		{
-			src: 'https://source.unsplash.com/88YAXjnpvrM',
+			src: meatLoversBurger,
 			alt: 'meat lovers burger',
 			price: '$10.99',
 			text:
 				'A true testament of our love for meat. TWO classic patties with american cheese and crisp Artisan Dry-Cured Bacon, on a bed of caramelized onions, sweet ventilla chiles, pickels and our special sauce in our staple brioche bread.'
 		},
 		{
-			src: 'https://source.unsplash.com/pjGnlZTtQ-Y',
+			src: doubleTroubleBurger,
 			alt: 'double trouble burger',
 			price: '$12.99',
 			text:
 				' Prepare for TROUBLE! - Make it DOUBLE! This is getting out of hand... Now there are TWO of them! You guessed it, our classic Restaurant Page Burger but doubled. Buy them or something!'
 		},
 		{
-			src: 'https://source.unsplash.com/b6bYaFOPfmI',
+			src: doNotBurger,
 			alt: 'do not burger',
 			price: '$11.99',
 			text:
