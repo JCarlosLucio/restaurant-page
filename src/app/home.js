@@ -2,6 +2,7 @@ import restaurantPageBurger from '../assets/restaurant-page-burger.jpg';
 const content = document.querySelector('#content');
 
 export function createHome() {
+	content.textContent = ''; // clear content
 	// create elements
 	const containerFluid = document.createElement('div');
 	const container = document.createElement('div');

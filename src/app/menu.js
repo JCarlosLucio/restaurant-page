@@ -4,8 +4,8 @@ import doubleTroubleBurger from '../assets/double-trouble-burger.jpg';
 import doNotBurger from '../assets/do-not-burger.jpg';
 
 const content = document.querySelector('#content');
-
 export function createMenu() {
+	content.textContent = ''; // clear content
 	const menuGrid = document.createElement('div');
 	menuGrid.classList.add('menu-grid');
 	const menuItems = [
