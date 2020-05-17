@@ -14,8 +14,7 @@ export function createNavbar() {
 		const li = document.createElement('li');
 		span.textContent = spanTexts[i];
 		span.classList.add('link-text');
-		icon.classList.add('fas');
-		icon.classList.add(iconClasses[i]);
+		icon.classList.add('fas', iconClasses[i]);
 		aLink.classList.add('nav-link');
 		li.classList.add('nav-item');
 		aLink.append(icon, span);
