@@ -16,6 +16,7 @@ export function createNavbar() {
 		span.classList.add('link-text');
 		icon.classList.add('fas', iconClasses[i]);
 		aLink.classList.add('nav-link');
+		aLink.id = `${spanTexts[i].toLowerCase()}-link`;
 		li.classList.add('nav-item');
 		aLink.append(icon, span);
 		li.append(aLink);
