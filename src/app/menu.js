@@ -12,7 +12,7 @@ export function createMenu() {
 	menuContainer.classList.add('menu-container');
 
 	const h1 = document.createElement('h1');
-	h1.textContent = 'Menu';
+	h1.textContent = 'MENU';
 
 	const menuGrid = document.createElement('div');
 	menuGrid.classList.add('menu-grid');
