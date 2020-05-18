@@ -9,6 +9,7 @@ $colors: (
 	nav: #03123d,
 	nav-dark: #010c2b,
 	primary: #00b38d,
+	secondary: #df00f3,
 	accent: #56ecc3,
 	text: #ffffff,
 	text-dark:#000000,
@@ -54,6 +55,118 @@ body {
 #content {
 	@include oneHundred();
 }
+
+// CONTACT PAGE
+.contact-container-fluid {
+	@include oneHundred();
+	@include flexCenter(column);
+	color: color(text);
+	justify-content: flex-start;
+}
+.contact-container {
+	height: 100%;
+	width: 80vw;
+	// dont remove
+	display: flex;
+	flex-direction: column;
+	// dont remove
+	@include desktop {
+		padding-left: 5rem;
+	}
+}
+.contact-grid {
+	display: grid;
+	gap: 1rem;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	grid-auto-rows: 35rem;
+	grid-row: span 2/auto;
+	height: 100%;
+	@include desktop {
+		gap: 4rem;
+		width: 100%;
+		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+		grid-auto-rows: 80vh;
+	}
+}
+.contact {
+	@include oneHundred();
+	@include flexCenter(column);
+	justify-content: space-evenly;
+	border-radius: 0.5rem;
+	box-shadow: 1px 1px 10px color(shadow);
+	background: color(bg-light);
+	color: color(text-dark);
+	font-size: 0.9rem;
+	letter-spacing: 0.05rem;
+	line-height: 1.5;
+	text-align: center;
+	@include desktop {
+		font-size: 1.3rem;
+	}
+	h2 {
+		font-size: 2rem;
+		margin-top: 1rem;
+		margin-bottom: 0;
+		justify-self: flex-start;
+	}
+	form {
+		@include flexCenter(column);
+		justify-content: space-evenly;
+		height: 25rem;
+		@include desktop {
+			height: 35rem;
+			width: 25rem;
+		}
+		input,
+		textarea {
+			width: 80%;
+			border-radius: 0.3rem;
+			border: none;
+			box-shadow: 1px 1px 5px color(shadow);
+			padding: 1rem 0.8rem;
+			font-size: 0.8rem;
+		}
+		button {
+			padding: 0.5rem 0.8rem;
+			border-radius: 0.3rem;
+			width: 80%;
+			background-color: color(nav-dark);
+			color: color(text);
+			border: none;
+			font-size: 1.1rem;
+			&:hover {
+				color: color(accent);
+				background-color: color(nav);
+			}
+		}
+	}
+	i {
+		font-size: 2rem;
+		margin-bottom: 1rem;
+	}
+	.fa-github-alt {
+		font-size: 1.3rem;
+	}
+	a {
+		color: color(primary);
+		text-decoration: none;
+		padding: 0 1rem;
+		&:hover {
+			color: color(secondary);
+		}
+	}
+	p {
+		padding: 0 2rem;
+	}
+	&:last-of-type {
+		margin-bottom: 6rem;
+		@include desktop {
+			margin-bottom: 0;
+		}
+	}
+}
+
 // MENU PAGE
 .menu-grid {
 	display: grid;
