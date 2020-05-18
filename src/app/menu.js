@@ -6,6 +6,14 @@ import doNotBurger from '../assets/do-not-burger.jpg';
 const content = document.querySelector('#content');
 export function createMenu() {
 	content.textContent = ''; // clear content
+	const menuContainerFluid = document.createElement('div');
+	const menuContainer = document.createElement('div');
+	menuContainerFluid.classList.add('menu-container-fluid');
+	menuContainer.classList.add('menu-container');
+
+	const h1 = document.createElement('h1');
+	h1.textContent = 'Menu';
+
 	const menuGrid = document.createElement('div');
 	menuGrid.classList.add('menu-grid');
 	const menuItems = [
@@ -60,5 +68,8 @@ export function createMenu() {
 		textDiv.append(h2, span, p);
 		menuGrid.append(imgDiv, textDiv);
 	}
-	content.append(menuGrid);
+
+	menuContainer.append(h1, menuGrid);
+	menuContainerFluid.append(menuContainer);
+	content.append(menuContainerFluid);
 }

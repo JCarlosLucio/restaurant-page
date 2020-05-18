@@ -168,22 +168,39 @@ body {
 }
 
 // MENU PAGE
+.menu-container-fluid {
+	width: 100%;
+	@include flexCenter(column);
+	color: color(text);
+	justify-content: flex-start;
+	background-image: $bg-gradient;
+}
+.menu-container {
+	width: 90vw;
+	// dont remove
+	display: flex;
+	flex-direction: column;
+	// dont remove
+	@include desktop {
+		padding-left: 5rem;
+	}
+	h1 {
+		padding-left: 6vw;
+	}
+}
 .menu-grid {
 	display: grid;
 	gap: 1rem;
 	justify-content: center;
 	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 	grid-auto-rows: 18rem;
-	padding: 1rem;
+	padding: 0 1rem;
 	margin-bottom: 5rem;
-	background-image: $bg-gradient;
 	@include desktop {
 		gap: 2rem;
 		padding: 2rem;
 		grid-template-columns: repeat(auto-fit, minmax(16rem, 16rem));
 		grid-auto-rows: 16rem;
-		// height: 100%;
-		margin-left: 5rem;
 		margin-bottom: 0;
 	}
 }
