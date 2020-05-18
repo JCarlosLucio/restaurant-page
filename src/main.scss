@@ -6,16 +6,16 @@
 $colors: (
 	bg-dark: #042074,
 	bg-light: #ffffff,
-	nav: #03123d,
-	nav-dark: #010c2b,
-	primary: #00b38d,
+	nav: #161218,
+	nav-dark: #1e1820,
+	primary: #c24551,
 	secondary: #df00f3,
-	accent: #56ecc3,
+	accent: #f33427,
 	text: #ffffff,
 	text-dark:#000000,
 	shadow: #00000071
 );
-$bg-gradient: linear-gradient(to right bottom, #042074, #0057a9, #008bc3, #00bdc8, #56ecc3);
+$bg-gradient: linear-gradient(to right bottom, #090909, #59314c, #c2525d, #ff993b, #ffff00);
 $desktop: 60rem;
 
 @function color($color-name) {
