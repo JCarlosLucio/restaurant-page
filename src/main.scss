@@ -58,13 +58,12 @@ body {
 
 // CONTACT PAGE
 .contact-container-fluid {
-	@include oneHundred();
+	width: 100%;
 	@include flexCenter(column);
 	color: color(text);
 	justify-content: flex-start;
 }
 .contact-container {
-	height: 100%;
 	width: 80vw;
 	// dont remove
 	display: flex;
@@ -81,12 +80,13 @@ body {
 	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 	grid-auto-rows: 35rem;
 	grid-row: span 2/auto;
-	height: 100%;
+	margin-bottom: 6rem;
 	@include desktop {
 		gap: 4rem;
 		width: 100%;
 		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 		grid-auto-rows: 80vh;
+		margin-bottom: 0;
 	}
 }
 .contact {
@@ -195,7 +195,7 @@ body {
 	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 	grid-auto-rows: 18rem;
 	padding: 0 1rem;
-	margin-bottom: 5rem;
+	margin-bottom: 6rem;
 	@include desktop {
 		gap: 2rem;
 		padding: 2rem;
