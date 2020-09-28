@@ -1,407 +1,416 @@
 :root {
-	font-size: 16px;
-	font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 $colors: (
-	bg-dark: #042074,
-	bg-light: #ffffff,
-	nav: #161218,
-	nav-dark: #1e1820,
-	primary: #c24551,
-	secondary: #df00f3,
-	accent: #f33427,
-	text: #ffffff,
-	text-dark:#000000,
-	shadow: #00000071
+  bg-dark: #042074,
+  bg-light: #ffffff,
+  nav: #161218,
+  nav-dark: #1e1820,
+  primary: #c24551,
+  secondary: #df00f3,
+  accent: #f33427,
+  text: #ffffff,
+  text-dark:#000000,
+  shadow: #00000071
 );
-$bg-gradient: linear-gradient(to right bottom, #090909, #59314c, #c2525d, #ff993b, #ffff00);
+$bg-gradient: linear-gradient(
+  to right bottom,
+  #090909,
+  #59314c,
+  #c2525d,
+  #ff993b,
+  #ffff00
+);
 $desktop: 60rem;
 
 @function color($color-name) {
-	@return map-get($colors, $color-name);
+  @return map-get($colors, $color-name);
 }
 @mixin noMarginPadding {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 @mixin flexCenter($direction) {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: $direction;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
 }
 @mixin oneHundred() {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 @mixin desktop {
-	@media (min-width: #{$desktop}) {
-		@content;
-	}
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
 }
 
 body,
 html {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	@include noMarginPadding();
-	color: color(text);
-	background-color: color(bg-light);
+  @include noMarginPadding();
+  color: color(text);
+  background-color: color(bg-light);
 }
 #content {
-	@include oneHundred();
+  @include oneHundred();
 }
 
 // CONTACT PAGE
 .contact-container-fluid {
-	width: 100%;
-	@include flexCenter(column);
-	color: color(text);
-	justify-content: flex-start;
+  width: 100%;
+  @include flexCenter(column);
+  color: color(text);
+  justify-content: flex-start;
 }
 .contact-container {
-	width: 80vw;
-	// dont remove
-	display: flex;
-	flex-direction: column;
-	// dont remove
-	@include desktop {
-		padding-left: 5rem;
-	}
+  width: 80vw;
+  // dont remove
+  display: flex;
+  flex-direction: column;
+  // dont remove
+  @include desktop {
+    padding-left: 5rem;
+  }
 }
 .contact-grid {
-	display: grid;
-	gap: 1rem;
-	justify-content: center;
-	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-	grid-auto-rows: 35rem;
-	grid-row: span 2/auto;
-	margin-bottom: 6rem;
-	@include desktop {
-		gap: 4rem;
-		width: 100%;
-		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-		grid-auto-rows: 80vh;
-		margin-bottom: 0;
-	}
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-auto-rows: 35rem;
+  grid-row: span 2/auto;
+  margin-bottom: 6rem;
+  @include desktop {
+    gap: 4rem;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-auto-rows: 80vh;
+    margin-bottom: 0;
+  }
 }
 .contact {
-	@include oneHundred();
-	@include flexCenter(column);
-	justify-content: space-evenly;
-	border-radius: 0.5rem;
-	box-shadow: 1px 1px 10px color(shadow);
-	background: color(bg-light);
-	color: color(text-dark);
-	font-size: 0.9rem;
-	letter-spacing: 0.05rem;
-	line-height: 1.5;
-	text-align: center;
-	@include desktop {
-		font-size: 1.3rem;
-	}
-	h2 {
-		font-size: 2rem;
-		margin-top: 1rem;
-		margin-bottom: 0;
-		justify-self: flex-start;
-	}
-	form {
-		@include flexCenter(column);
-		justify-content: space-evenly;
-		height: 25rem;
-		@include desktop {
-			height: 35rem;
-			width: 25rem;
-		}
-		input,
-		textarea {
-			width: 80%;
-			border-radius: 0.3rem;
-			border: none;
-			box-shadow: 1px 1px 5px color(shadow);
-			padding: 1rem 0.8rem;
-			font-size: 0.8rem;
-		}
-		button {
-			padding: 0.5rem 0.8rem;
-			border-radius: 0.3rem;
-			width: 80%;
-			background-color: color(nav-dark);
-			color: color(text);
-			border: none;
-			font-size: 1.1rem;
-			&:hover {
-				color: color(accent);
-				background-color: color(nav);
-			}
-		}
-	}
-	i {
-		font-size: 2rem;
-		margin-bottom: 1rem;
-	}
-	.fa-github-alt {
-		font-size: 1.3rem;
-	}
-	a {
-		color: color(primary);
-		text-decoration: none;
-		padding: 0 1rem;
-		&:hover {
-			color: color(secondary);
-		}
-	}
-	p {
-		padding: 0 2rem;
-	}
-	&:last-of-type {
-		margin-bottom: 6rem;
-		@include desktop {
-			margin-bottom: 0;
-		}
-	}
+  @include oneHundred();
+  @include flexCenter(column);
+  justify-content: space-evenly;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 10px color(shadow);
+  background: color(bg-light);
+  color: color(text-dark);
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  line-height: 1.5;
+  text-align: center;
+  @include desktop {
+    font-size: 1.3rem;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    justify-self: flex-start;
+  }
+  form {
+    @include flexCenter(column);
+    justify-content: space-evenly;
+    height: 25rem;
+    @include desktop {
+      height: 35rem;
+      width: 25rem;
+    }
+    input,
+    textarea {
+      width: 80%;
+      border-radius: 0.3rem;
+      border: none;
+      box-shadow: 1px 1px 5px color(shadow);
+      padding: 1rem 0.8rem;
+      font-size: 0.8rem;
+    }
+    button {
+      padding: 0.5rem 0.8rem;
+      border-radius: 0.3rem;
+      width: 80%;
+      background-color: color(nav-dark);
+      color: color(text);
+      border: none;
+      font-size: 1.1rem;
+      &:hover {
+        color: color(accent);
+        background-color: color(nav);
+      }
+    }
+  }
+  i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .fa-github-alt {
+    font-size: 1.3rem;
+  }
+  a {
+    color: color(primary);
+    text-decoration: none;
+    padding: 0 1rem;
+    &:hover {
+      color: color(secondary);
+    }
+  }
+  p {
+    padding: 0 2rem;
+  }
+  &:last-of-type {
+    margin-bottom: 6rem;
+    @include desktop {
+      margin-bottom: 0;
+    }
+  }
 }
 
 // MENU PAGE
 .menu-container-fluid {
-	width: 100%;
-	@include flexCenter(column);
-	color: color(text);
-	justify-content: flex-start;
-	background-image: $bg-gradient;
+  width: 100%;
+  @include flexCenter(column);
+  color: color(text);
+  justify-content: flex-start;
+  background-image: $bg-gradient;
 }
 .menu-container {
-	width: 90vw;
-	// dont remove
-	display: flex;
-	flex-direction: column;
-	// dont remove
-	@include desktop {
-		padding-left: 5rem;
-	}
-	h1 {
-		padding-left: 6vw;
-	}
+  width: 90vw;
+  // dont remove
+  display: flex;
+  flex-direction: column;
+  // dont remove
+  @include desktop {
+    padding-left: 5rem;
+  }
+  h1 {
+    padding-left: 6vw;
+  }
 }
 .menu-grid {
-	display: grid;
-	gap: 1rem;
-	justify-content: center;
-	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-	grid-auto-rows: 18rem;
-	padding: 0 1rem;
-	margin-bottom: 6rem;
-	@include desktop {
-		gap: 2rem;
-		padding: 2rem;
-		grid-template-columns: repeat(auto-fit, minmax(16rem, 16rem));
-		grid-auto-rows: 16rem;
-		margin-bottom: 0;
-	}
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-auto-rows: 18rem;
+  padding: 0 1rem;
+  margin-bottom: 6rem;
+  @include desktop {
+    gap: 2rem;
+    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 16rem));
+    grid-auto-rows: 16rem;
+    margin-bottom: 0;
+  }
 }
 .menu {
-	@include oneHundred();
-	@include flexCenter(column);
-	border-radius: 0.5rem;
-	background: color(bg-light);
-	color: color(text-dark);
-	font-size: 0.9rem;
-	text-align: center;
-	transition: all 400ms;
-	&:hover {
-		box-shadow: color(shadow) 0px 0.35em 1.175em, color(shadow) 0px 0.175em 0.5em;
-		transform: translateY(-3px) scale(1.03);
-	}
-	img {
-		height: 100%;
-		width: 100%;
-		border-radius: 0.5rem;
-	}
-	span {
-		border: 1px solid color(text-dark);
-		border-radius: 0.2rem;
-		padding: 0.2rem;
-		font-size: 1.1rem;
-		@include desktop() {
-			font-size: 1.3rem;
-		}
-	}
-	p {
-		padding: 0 1rem;
-		// font-size: 0.8rem;
-		letter-spacing: 0.05rem;
-		line-height: 1.5;
-	}
-	@include desktop {
-		font-size: 1.1rem;
-		&-tall {
-			grid-row: span 2 / auto;
-		}
-		&-wide {
-			grid-column: span 2 / auto;
-		}
-	}
+  @include oneHundred();
+  @include flexCenter(column);
+  border-radius: 0.5rem;
+  background: color(bg-light);
+  color: color(text-dark);
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 400ms;
+  &:hover {
+    box-shadow: color(shadow) 0px 0.35em 1.175em,
+      color(shadow) 0px 0.175em 0.5em;
+    transform: translateY(-3px) scale(1.03);
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+  span {
+    border: 1px solid color(text-dark);
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+    font-size: 1.1rem;
+    @include desktop() {
+      font-size: 1.3rem;
+    }
+  }
+  p {
+    padding: 0 1rem;
+    // font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+    line-height: 1.5;
+  }
+  @include desktop {
+    font-size: 1.1rem;
+    &-tall {
+      grid-row: span 2 / auto;
+    }
+    &-wide {
+      grid-column: span 2 / auto;
+    }
+  }
 }
 
 // HOME PAGE
 .container-fluid {
-	@include oneHundred();
-	@include flexCenter(column);
-	color: color(text);
-	justify-content: flex-start;
+  @include oneHundred();
+  @include flexCenter(column);
+  color: color(text);
+  justify-content: flex-start;
 }
 .container {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	@include desktop {
-		align-items: center;
-		padding-left: 5rem;
-	}
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  @include desktop {
+    align-items: center;
+    padding-left: 5rem;
+  }
 }
 h1 {
-	font-size: 2rem;
-	@include desktop {
-		font-size: 3rem;
-		display: flex;
-		align-self: flex-start;
-	}
+  font-size: 2rem;
+  @include desktop {
+    font-size: 3rem;
+    display: flex;
+    align-self: flex-start;
+  }
 }
 .span-box {
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
-	position: absolute;
-	width: 20rem;
-	height: 20rem;
-	@include desktop {
-		width: 30rem;
-		height: 30rem;
-	}
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  @include desktop {
+    width: 30rem;
+    height: 30rem;
+  }
 }
 .img-box {
-	padding: 2rem 0;
-	@include flexCenter(column);
-	img {
-		width: 20rem;
-		height: 20rem;
-		border-radius: 50%;
-		box-shadow: 1px 1px 10px color(shadow);
-		@include desktop {
-			width: 30rem;
-			height: 30rem;
-		}
-	}
+  padding: 2rem 0;
+  @include flexCenter(column);
+  img {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px color(shadow);
+    @include desktop {
+      width: 30rem;
+      height: 30rem;
+    }
+  }
 }
 .img-text {
-	height: 7rem;
-	width: 7rem;
-	text-align: center;
-	font-size: 1.2rem;
-	font-weight: 800;
-	border-radius: 50%;
-	color: color(text-dark);
-	background-color: color(bg-light);
-	box-shadow: 1px 1px 10px color(shadow);
-	@include flexCenter(column);
-	@include desktop {
-		height: 8rem;
-		width: 8rem;
-		font-size: 1.5rem;
-	}
+  height: 7rem;
+  width: 7rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  border-radius: 50%;
+  color: color(text-dark);
+  background-color: color(bg-light);
+  box-shadow: 1px 1px 10px color(shadow);
+  @include flexCenter(column);
+  @include desktop {
+    height: 8rem;
+    width: 8rem;
+    font-size: 1.5rem;
+  }
 }
 .card {
-	color: color(text-dark);
-	text-align: right;
-	line-height: 1.8;
-	letter-spacing: 0.05rem;
-	width: 80vw;
-	&:last-of-type {
-		padding-bottom: 5rem;
-		@include desktop {
-			padding-bottom: 1rem;
-		}
-	}
-	@include desktop {
-		font-size: 1.2rem;
-	}
+  color: color(text-dark);
+  text-align: right;
+  line-height: 1.8;
+  letter-spacing: 0.05rem;
+  width: 80vw;
+  &:last-of-type {
+    padding-bottom: 5rem;
+    @include desktop {
+      padding-bottom: 1rem;
+    }
+  }
+  @include desktop {
+    font-size: 1.2rem;
+  }
 }
 .triangle {
-	@include oneHundred();
-	clip-path: polygon(0 0, 100% 0, 100% 19%, 0 60%);
-	background-image: $bg-gradient;
-	position: absolute;
-	z-index: -1;
-	@include desktop {
-		clip-path: polygon(0 0, 100% 0, 100% 19%, 0 80%);
-	}
+  @include oneHundred();
+  clip-path: polygon(0 0, 100% 0, 100% 19%, 0 60%);
+  background-image: $bg-gradient;
+  position: absolute;
+  z-index: -1;
+  @include desktop {
+    clip-path: polygon(0 0, 100% 0, 100% 19%, 0 80%);
+  }
 }
 // NAVBAR
 .navbar {
-	bottom: 0;
-	width: 100vw;
-	height: 5rem;
-	position: fixed;
-	background-color: color(nav);
-	transition: width 200ms ease;
-	@include flexCenter(row);
-	@include desktop {
-		width: 5rem;
-		height: 100vh;
-	}
-	&:hover {
-		@include desktop {
-			width: 12rem;
-		}
-	}
-	&:hover .link-text {
-		@include desktop {
-			display: inline;
-		}
-	}
-	&-nav {
-		width: 100vw;
-		list-style: none;
-		@include noMarginPadding();
-		@include flexCenter(row);
-		@include desktop {
-			height: 100%;
-			justify-content: flex-start;
-			flex-direction: column;
-		}
-	}
+  bottom: 0;
+  width: 100vw;
+  height: 5rem;
+  position: fixed;
+  background-color: color(nav);
+  transition: width 200ms ease;
+  @include flexCenter(row);
+  @include desktop {
+    width: 5rem;
+    height: 100vh;
+  }
+  &:hover {
+    @include desktop {
+      width: 12rem;
+    }
+  }
+  &:hover .link-text {
+    @include desktop {
+      display: inline;
+    }
+  }
+  &-nav {
+    width: 100vw;
+    list-style: none;
+    @include noMarginPadding();
+    @include flexCenter(row);
+    @include desktop {
+      height: 100%;
+      justify-content: flex-start;
+      flex-direction: column;
+    }
+  }
 }
 
 .nav {
-	&-item {
-		width: 100%;
-		&:hover {
-			background-color: color(nav-dark);
-		}
-	}
-	&-link {
-		height: 5rem;
-		width: 100%;
-		color: color(text);
-		text-decoration: none;
-		font-size: 1.5rem;
-		@include flexCenter(row);
-		@include desktop {
-			width: 3.5rem;
-			justify-content: flex-start;
-			padding-left: 1.5rem;
-		}
-		&:hover {
-			color: color(accent);
-		}
-	}
+  &-item {
+    width: 100%;
+    &:hover {
+      background-color: color(nav-dark);
+    }
+  }
+  &-link {
+    height: 5rem;
+    width: 100%;
+    color: color(text);
+    text-decoration: none;
+    font-size: 1.5rem;
+    @include flexCenter(row);
+    @include desktop {
+      width: 3.5rem;
+      justify-content: flex-start;
+      padding-left: 1.5rem;
+    }
+    &:hover {
+      cursor: pointer;
+      color: color(accent);
+    }
+  }
 }
 .link-text {
-	display: none;
-	margin-left: 1rem;
+  display: none;
+  margin-left: 1rem;
 }
