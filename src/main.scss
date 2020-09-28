@@ -398,6 +398,7 @@ h1 {
     color: color(text);
     text-decoration: none;
     font-size: 1.5rem;
+    transition: color 0.2s ease;
     @include flexCenter(row);
     @include desktop {
       width: 3.5rem;
